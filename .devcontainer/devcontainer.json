@@ -6,7 +6,7 @@
     "mounts": [
         "source=D:/app,target=/${APP_NAME},type=bind"
     ],
-    "forwardPorts": [3000, 5432, 8000],
+    "forwardPorts": [3000, 5432, 8080],
     "customizations": {
         "vscode": {
             "extensions": [

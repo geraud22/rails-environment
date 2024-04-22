@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  rails-env:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    networks:
+      - rails-network
+  
+  db:
+    image: postgres:${POSTGRES_VERSION}
+    restart: unless-stopped
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+      - .create-db-user.sql:/docker-entrypoint-initdb.d/create-db-user.sql
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    networks:
+      - rails-network
+  
+  adminer:
+    image: adminer
+    depends_on:
+      - db
+    networks:
+      - rails-network
+
+networks:
+  rails-network:
+    driver: bridge
