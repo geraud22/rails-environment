@@ -1,0 +1,21 @@
+{
+	"name": "Ruby on Rails & Postgres",
+	"dockerComposeFile": "docker-compose.yml",
+    "service": "rails-env",
+    "workspaceFolder": "/${APP_NAME}",
+    "mounts": [
+        "source=D:/app,target=/${APP_NAME},type=bind"
+    ],
+    "forwardPorts": [3000, 5432, 8000],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+				"Shopify.ruby-extensions-pack",
+				"castwide.solargraph",
+				"vortizhe.simple-ruby-erb",
+				"rayhanw.erb-helpers",
+				"aki77.rails-db-schema"
+			]
+        }
+    }
+}

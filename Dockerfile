@@ -23,4 +23,5 @@ RUN mkdir -p $NVM_DIR && \
 RUN gem install Rails
 
 # Create New Rails App
+WORKDIR /
 RUN rails new ${APP_NAME}
