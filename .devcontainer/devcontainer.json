@@ -2,13 +2,13 @@
 	"name": "Ruby on Rails & Postgres",
 	"dockerComposeFile": "../compose.yml",
     "service": "app",
-    "workspaceFolder": "/blog",
+    "workspaceFolder": "/workspace",
     "mounts": [
-        "source=${workspaceFolder}/../app,target=/blog,type=bind"
+        "source=${localWorkspaceFolder}/container-workspace,target=/workspace,type=bind"
     ],
     "forwardPorts": [
         3000, 
-        5432, 
+        5432,
         8080
     ],
     "customizations": {
