@@ -10,6 +10,9 @@ RUN . /usr/local/share/nvm/nvm.sh \
     && nvm use default \
     && npm install -g npm@latest
 
+# Install Sqlite3
+RUN apt-get install -y sqlite3
+
 # Install Rails
 RUN gem install rails
 
