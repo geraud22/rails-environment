@@ -19,8 +19,9 @@ RUN gem install rails
 # Give VSCode User ownership of RVM Gems directory
 RUN sudo chown -R vscode:vscode /usr/local/rvm/gems/
 
-# Make RVM aware of System Ruby
-RUN rvm mount $(which ruby)
+# Set default shell for RVM install command
+SHELL ["/bin/bash", "-l", "-c"]
+RUN rvm install "ruby-3.3.0" --movable
 
 # Dummy Process to keep Container Running
 CMD ["sleep", "infinity"]
