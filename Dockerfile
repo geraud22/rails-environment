@@ -19,5 +19,8 @@ RUN gem install rails
 # Give VSCode User ownership of RVM Gems directory
 RUN sudo chown -R vscode:vscode /usr/local/rvm/gems/
 
+# Make RVM aware of System Ruby
+RUN rvm mount $(which ruby)
+
 # Dummy Process to keep Container Running
 CMD ["sleep", "infinity"]
