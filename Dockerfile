@@ -16,5 +16,8 @@ RUN apt-get install -y sqlite3
 # Install Rails
 RUN gem install rails
 
+# Give VSCode User ownership of relevant directories
+RUN sudo chown -R vscode:vscode /usr/local/rvm/gems
+
 # Dummy Process to keep Container Running
 CMD ["sleep", "infinity"]
